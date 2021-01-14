@@ -10,7 +10,7 @@ var userList = [];
 var resultList = [];
 var count = 0;
 
-// - 1 - genero dei numeri random assegnandoli ad un array
+// 1 - genero dei numeri random assegnandoli ad un array
 var i = 0;
 do {
     var rndmNumber = generaRandom(minNum, maxNum);
@@ -25,20 +25,30 @@ do {
 console.log(numList);
 alert(numList);
 
+// Imposto timeout prima di far partire il gioco
 setTimeout(() => {
+
+    // Prompt di inserimento numero utente con controllo se il numero è corretto e se il numero si ripete o meno
     var j = 0;
     do {
 
-        var userNum = parseInt(prompt('Inserisci un numero'));
+        var userNum = Math.abs(parseInt(prompt('Inserisci un numero')));
 
-        if (userList.includes(userNum) == false) {
+        if (userNum >= minNum && userNum <= maxNum && userList.includes(userNum) == false) {
             userList.push(userNum);
+        } else if (isNaN(userNum)) {
+            alert('Attenzione! Non hai inserito nessun numero! Riprova');
+        } else {
+            alert('Numero errato!');
         }
+
         j++;
+
     } while (userList.length < 5);
 
     console.log(userList);
 
+    // Verifica se e quanti numeri inseriti dall'utente sono presenti tra i numeri da indovinare
     for (var i = 0; i < 5; i++) {
 
         var k = numList[i];
@@ -65,6 +75,10 @@ setTimeout(() => {
 
     console.log(resultList);
     console.log(count);
+
+    // Stampo esito partita con numero di inserimenti corretti e lista numeri
+    console.log(`Hai indovinato ${count} numeri: ${resultList}`);
+    alert(`Hai indovinato ${count} numeri: ${resultList}`);
 
 }, seconds * 1000);
 
