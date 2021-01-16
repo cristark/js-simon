@@ -1,8 +1,8 @@
-/* Un alert espone 5 numeri casuali. Da li parte un timer di 30 secondi.
+ /* Un alert espone 5 numeri casuali. Da li parte un timer di 30 secondi.
 Dopo 30 secondi l'utente deve inserire un prompt alla volta i numeri che ha visto precedentemente. 
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
 
-var seconds = 1;
+var seconds = 5;
 var minNum = 1;
 var maxNum = 50;
 var numList = [];
@@ -73,14 +73,19 @@ setTimeout(() => {
 
     }
 
-    console.log(resultList);
-    console.log(count);
-
     // Stampo esito partita con numero di inserimenti corretti e lista numeri
     console.log(`Hai indovinato ${count} numeri: ${resultList}`);
-    alert(`Hai indovinato ${count} numeri: ${resultList}`);
+
+    if (count == 5) {
+        alert('Complimenti, hai indovinato tutti i numeri! HAI VINTO!');
+    } else if (count == 0) {
+        alert('Mi dispiace, non hai indovinato nessun numero. Riprova');
+    } else {
+        alert(`Hai indovinato ${count} numeri: ${resultList}`);
+    }
 
 }, seconds * 1000);
+
 
 
 

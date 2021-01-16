@@ -5,10 +5,109 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Bungee-Regular";
+  src: url("../img/Bungee-Regular.otf") format("truetype");
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Bungee-Regular";
+  background-image: url(../img/bgi-game.jpg);
+  color: #fff;
 }
 
 a {
   color: black;
+}
+
+header {
+  text-align: center;
+  margin: auto;
+}
+
+header img {
+  height: 120px;
+  margin: 50px 0;
+}
+
+main {
+  text-align: center;
+}
+
+.user_numbers {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.user_numbers .number {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  margin-right: 50px;
+  position: relative;
+  transition: transform 3s;
+  transform-style: preserve-3d;
+}
+
+.user_numbers .number:hover {
+  transform: rotateY(0.5turn);
+}
+
+.back_card,
+.front_card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.user_numbers .number .back_card {
+  width: 200px;
+  height: 200px;
+  background-color: #fee333;
+  border-radius: 50px;
+  /* transform: rotateY(0.5turn); */
+}
+
+.user_numbers .number .front_card {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  color: #fee333;
+  border: 10px solid #93268f;
+  border-radius: 50px;
+  transform: rotateY(0.5turn);
+}
+
+.front_card p {
+  line-height: 180px;
+  font-size: 6em;
+  text-shadow: 5px 5px 0 #400152;
+}
+
+.number.active {
+  animation: flipCards 1s linear 0.5s;
+  animation-fill-mode: backwards;
+}
+
+.start {
+  position: relative;
+}
+
+.start img {
+  width: 250px;
+}
+
+.start p {
+  position: absolute;
+  font-size: 3em;
+  top: 65px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
 }
