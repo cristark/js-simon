@@ -25,22 +25,30 @@ header {
   margin: auto;
 }
 
+/* ? Classe per nascondere sezioni */
+.hide {
+  display: none;
+}
+
+/* | HEADER SECTION | */
 header img {
   height: 120px;
   margin: 50px 0;
 }
 
+/* | MAIN SECTION | */
 main {
   text-align: center;
 }
 
-.user_numbers {
+/* | NUmeri da Indovinare | */
+.card_numbers {
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
 }
 
-.user_numbers .number {
+.card_numbers .number {
   width: 200px;
   height: 200px;
   display: flex;
@@ -51,8 +59,38 @@ main {
   transform-style: preserve-3d;
 }
 
-.user_numbers .number:hover {
+/* .card_numbers .number:hover {
   transform: rotateY(0.5turn);
+} */
+
+/* * Animazione per mostrare carte */
+.number.flip_on {
+  animation: flipCardsOn 1s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flipCardsOn {
+  0% {
+    transform: rotateY(0);
+  }
+  100% {
+    transform: rotateY(0.5turn);
+  }
+}
+
+/* * Animazione per nascondere carte */
+.number.flip_off {
+  animation: flipCardsOff 1s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flipCardsOff {
+  0% {
+    transform: rotateY(0.5turn);
+  }
+  100% {
+    transform: rotateY(0);
+  }
 }
 
 .back_card,
@@ -66,7 +104,7 @@ main {
   transform-style: preserve-3d;
 }
 
-.user_numbers .number .back_card {
+.card_numbers .number .back_card {
   width: 200px;
   height: 200px;
   background-color: #fee333;
@@ -74,7 +112,7 @@ main {
   /* transform: rotateY(0.5turn); */
 }
 
-.user_numbers .number .front_card {
+.card_numbers .number .front_card {
   width: 200px;
   height: 200px;
   background-color: #fff;
@@ -90,11 +128,7 @@ main {
   text-shadow: 5px 5px 0 #400152;
 }
 
-.number.active {
-  animation: flipCards 1s linear 0.5s;
-  animation-fill-mode: backwards;
-}
-
+/* | SEZIONE START GAME | */
 .start {
   position: relative;
 }
@@ -110,4 +144,14 @@ main {
   left: 50%;
   transform: translate(-50%, 0);
   cursor: pointer;
+}
+
+/* | SEZIONE NUMERI UTENTE | */
+.user_numbers .number input {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  color: #fee333;
+  border: 10px solid #93268f;
+  border-radius: 50px;
 }
