@@ -16,6 +16,11 @@ body {
   color: #fff;
 }
 
+.container {
+  width: 1320px;
+  margin: 0 auto;
+}
+
 a {
   color: black;
 }
@@ -33,7 +38,7 @@ header {
 /* | HEADER SECTION | */
 header img {
   height: 120px;
-  margin: 50px 0;
+  margin: 40px 0;
 }
 
 /* | MAIN SECTION | */
@@ -45,7 +50,6 @@ main {
 .card_numbers {
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
 }
 
 .card_numbers .number {
@@ -131,6 +135,7 @@ main {
 /* | SEZIONE START GAME | */
 .start {
   position: relative;
+  margin-top: 60px;
 }
 
 .start img {
@@ -147,11 +152,67 @@ main {
 }
 
 /* | SEZIONE NUMERI UTENTE | */
-.user_numbers .number input {
+.user_numbers {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.user_cards {
+  display: flex;
+  justify-content: center;
+}
+
+.user_cards .number {
+  margin-right: 50px;
+}
+
+.user_cards .number input {
   width: 200px;
   height: 200px;
   background-color: #fff;
   color: #fee333;
   border: 10px solid #93268f;
   border-radius: 50px;
+  font-size: 6em;
+  text-shadow: 5px 5px 0 #400152;
+  text-align: center;
+  font-family: "Bungee-Regular";
+}
+
+/*- Rimozione frecce dal campo di inserimento numero */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.select_items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.select_items p {
+  width: 60%;
+  line-height: 22px;
+  margin-right: 50px;
+  padding: 10px;
+  font-size: 1.5em;
+}
+
+.select_items .btn {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 123, 172, 1) 0%,
+    rgba(123, 3, 144, 1) 60%
+  );
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
 }

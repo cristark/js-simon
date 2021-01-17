@@ -18,80 +18,110 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <img src="img/logo-02.png" alt="Logo Game">
+        </header>
     
-    <!-- HEADER -->
-    <header>
-        <img src="img/logo-02.png" alt="Logo Game">
-    </header>
-
-    <!-- MAIN -->
-    <main>
-
-        <!--| Carte CPU da indovinare -->
-        <section class="card_numbers">
-
-            <!-- Carta 1 -->
-            <div class="number">
-                <div class="back_card"></div>
-                <div class="front_card">
-                    <p></p>
+        <!-- MAIN -->
+        <main>
+    
+            <!--| Carte CPU da indovinare -->
+            <section class="card_numbers">
+    
+                <!-- Carta 1 -->
+                <div class="number">
+                    <div class="back_card"></div>
+                    <div class="front_card">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Carta 2 -->
-            <div class="number">
-                <div class="back_card"></div>
-                <div class="front_card">
-                    <p></p>
+    
+                <!-- Carta 2 -->
+                <div class="number">
+                    <div class="back_card"></div>
+                    <div class="front_card">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Carta 3 -->
-            <div class="number">
-                <div class="back_card"></div>
-                <div class="front_card">
-                    <p></p>
+    
+                <!-- Carta 3 -->
+                <div class="number">
+                    <div class="back_card"></div>
+                    <div class="front_card">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Carta 4 -->
-            <div class="number">
-                <div class="back_card"></div>
-                <div class="front_card">
-                    <p></p>
+    
+                <!-- Carta 4 -->
+                <div class="number">
+                    <div class="back_card"></div>
+                    <div class="front_card">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-
-
-            <!-- Carta 5 -->
-            <div class="number">
-                <div class="back_card"></div>
-                <div class="front_card">
-                    <p></p>
+    
+    
+                <!-- Carta 5 -->
+                <div class="number">
+                    <div class="back_card"></div>
+                    <div class="front_card">
+                        <p></p>
+                    </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- | Sezione START Game -->
-        <section class="start">
-            <img src="img/Ellipse 1.svg" alt="">
-            <p>Start</p>
-        </section>
-
-        <!--| Sezione numeri utente -->
-        <section class="user_numbers hide">
-
-            <!-- Carta Utente 1 -->
-            <div class="number">
-                <input type="number" name="" id="">
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-        
-    </footer>
+            </section>
+    
+            <!-- | Sezione START Game -->
+            <section class="start">
+                <img src="img/Ellipse 1.svg" alt="">
+                <p>Start</p>
+            </section>
+    
+            <!--| Sezione numeri utente -->
+            <section class="user_numbers hide">
+    
+                <div class="user_cards">
+    
+                    <!-- Carta Utente 1 -->
+                    <div class="number hide">
+                        <input type="number" name="" id="" min="1" max="50">
+                    </div>
+    
+                    <!-- Carta Utente 2 -->
+                    <div class="number hide">
+                        <input type="number" name="" id="" min="1" max="50">
+                    </div>
+    
+                    <!-- Carta Utente 3 -->
+                    <div class="number hide">
+                        <input type="number" name="" id="" min="1" max="50">
+                    </div>
+    
+                    <!-- Carta Utente 4 -->
+                    <div class="number hide">
+                        <input type="number" name="" id="" min="1" max="50">
+                    </div>
+    
+                    <!-- Carta Utente 5 -->
+                    <div class="number hide">
+                        <input type="number" name="" id="" min="1" max="50">
+                    </div>
+                </div>
+    
+                <div class="select_items">
+                    <p>Ricorda il numero relativo alla carta subito sopra ed inseriscilo nella tua carta appena comparsa. Appena sei pronto premi il pulsante per proseguire</p>
+                    <div class="btn">Prosegui</div>
+                </div>
+            </section>
+        </main>
+    
+        <!-- FOOTER -->
+        <footer>
+            
+        </footer>
+    </div>
 
     <!-- Link Script Javascript -->
     <script src="js/graph_script.js" charset="utf-8"></script>

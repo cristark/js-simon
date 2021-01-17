@@ -16,16 +16,21 @@ $(document).ready(function(){
     var i = 0;
     do {
         var rndmNumber = generaRandom(minNum, maxNum);
-
+        console.log(rndmNumber);
         if (numList.includes(rndmNumber) == false) {
             numList.push(rndmNumber);
-            $('.card_numbers .number .front_card p').eq(i).text(rndmNumber);
         }
         i++;
 
     } while (numList.length < 5);
 
     console.log(numList);
+
+    // Stampo numeri su HTML prendendoli dall'array appena creato
+    for (var i = 0; i < numList.length; i++) {
+
+        $('.card_numbers .number .front_card p').eq(i).text(numList[i]);
+    }
 
     //Click su pulsante start per avviare gioco
     $('.start p').click(function(){
@@ -40,10 +45,12 @@ $(document).ready(function(){
         // Avvio CountDown per poi nascondere nuovamente le carte da indovinare
         var countDown = setInterval(function() {
 
+            var rndmPosition = generaRandom(0, 5);
             if (seconds == 0) {
                 clearInterval(countDown);
-                $('.start').fadeOut();
-                // !Aggiungere istruzione per mostrare sezione inserimento numeri
+                $('.start').addClass('hide');
+                $('.user_numbers').removeClass('hide');
+                $('.user_numbers .user_cards .number').eq(rndmPosition).removeClass('hide');
                 for (var i = 0; i < 5; i++) {
     
                     $('.card_numbers .number').eq(i).addClass('flip_off');
