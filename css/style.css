@@ -30,15 +30,19 @@ header {
   margin: auto;
 }
 
-/* ? Classe per nascondere sezioni */
+/* ? Classi per nascondere sezioni */
 .hide {
   display: none;
 }
 
+.ghost {
+  opacity: 0;
+}
+
 /* | HEADER SECTION | */
 header img {
-  height: 120px;
-  margin: 40px 0;
+  height: 100px;
+  margin: 40px 30px;
 }
 
 /* | MAIN SECTION | */
@@ -205,14 +209,16 @@ input[type="number"] {
   font-size: 1.5em;
 }
 
-.select_items .btn {
+.btn {
+  width: 50%;
   background: linear-gradient(
     145deg,
     rgba(255, 123, 172, 1) 0%,
     rgba(123, 3, 144, 1) 60%
   );
-  padding: 10px 30px;
-  border-radius: 20px;
-  font-size: 1.5em;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 1.2em;
+  margin: 10px auto 0;
   cursor: pointer;
 }

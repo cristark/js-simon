@@ -4,27 +4,47 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 $(document).ready(function(){
 
-    var seconds = 5;
+    var seconds = 2;
     var minNum = 1;
     var maxNum = 50;
     var numList = [];
     var userList = [];
-    var resultList = [];
-    var count = 0;
+    var wrongList = [];
+    var positionArr = [];
+    var rndmPos1, rndmPos2, rndmPos3, rndmPos4, rndmPos5;
 
-    // 1 - genero dei numeri random assegnandoli ad un array
+    // Genero numero random da 0 a 5 per conoscere posizione della carta giocatore che compare dopo aver avviato il gioco
+    while (positionArr.length < 5) {
+
+        var rndmNum = generaRandom(0, 4);
+        
+        if (positionArr.includes(rndmNum) == false) {
+            positionArr.push(rndmNum);
+        }
+
+    };
+
+    console.log(positionArr);
+    rndmPos1 = positionArr[0];
+    rndmPos2 = positionArr[1];
+    rndmPos3 = positionArr[2];
+    rndmPos4 = positionArr[3];
+    rndmPos5 = positionArr[4];
+    
+    // Genero dei numeri random assegnandoli ad un array
     var i = 0;
     do {
         var rndmNumber = generaRandom(minNum, maxNum);
-        console.log(rndmNumber);
+        /* console.log(rndmNumber); */
         if (numList.includes(rndmNumber) == false) {
             numList.push(rndmNumber);
         }
         i++;
-
+        
     } while (numList.length < 5);
-
-    console.log(numList);
+    
+    console.log('Lista numeri da indovinare', numList);
+    console.log(`Prima posizione carta giocatore: ${rndmPos1}`);
 
     // Stampo numeri su HTML prendendoli dall'array appena creato
     for (var i = 0; i < numList.length; i++) {
@@ -37,20 +57,17 @@ $(document).ready(function(){
         
         // Attivazione animazione per girare carte con numeri da indovinare
         for (var i = 0; i < 5; i++) {
-
         $('.card_numbers .number').eq(i).addClass('flip_on');
-
         }
 
         // Avvio CountDown per poi nascondere nuovamente le carte da indovinare
         var countDown = setInterval(function() {
 
-            var rndmPosition = generaRandom(0, 5);
             if (seconds == 0) {
                 clearInterval(countDown);
                 $('.start').addClass('hide');
                 $('.user_numbers').removeClass('hide');
-                $('.user_numbers .user_cards .number').eq(rndmPosition).removeClass('hide');
+                $('.user_numbers .user_cards .number').eq(rndmPos1).removeClass('ghost');
                 for (var i = 0; i < 5; i++) {
     
                     $('.card_numbers .number').eq(i).addClass('flip_off');
@@ -63,11 +80,112 @@ $(document).ready(function(){
             seconds--;
 
         }, 1000);
+        
     });
+    
+    
+    
+    //| Click su pulsante PRIMA CARTA GIOCATORE
+    $('.number .btn').eq(rndmPos1).click(function(){
+
+        console.log(`Posizione carta giocatore: ${rndmPos1}`);
+        
+        var userValue = $('.user_numbers .user_cards .number').eq(rndmPos1).children().val();
+        
+        if (numList.includes(parseInt(userValue))) {
+            userList.push(parseInt(userValue));
+        } else {
+            wrongList.push(parseInt(userValue));
+        }
+
+        $('.user_numbers .user_cards .number').eq(rndmPos1).addClass('ghost');
+        $('.user_numbers .user_cards .number').eq(rndmPos2).removeClass('ghost');
+
+    });
+
+    
+    //| Click su pulsante PROSEGUI
+    $('.number .btn').eq(rndmPos2).click(function(){
+        
+        var userValue = $('.user_numbers .user_cards .number').eq(rndmPos2).children().val();
+        
+        if (numList.includes(parseInt(userValue))) {
+            userList.push(parseInt(userValue));
+        } else {
+            wrongList.push(parseInt(userValue));
+        }
+
+        $('.user_numbers .user_cards .number').eq(rndmPos2).addClass('ghost');
+        $('.user_numbers .user_cards .number').eq(rndmPos3).removeClass('ghost');
+
+    });
+    
+
+    //| Click su pulsante PROSEGUI
+    $('.number .btn').eq(rndmPos3).click(function(){
+        
+        var userValue = $('.user_numbers .user_cards .number').eq(rndmPos3).children().val();
+        
+        if (numList.includes(parseInt(userValue))) {
+            userList.push(parseInt(userValue));
+        } else {
+            wrongList.push(parseInt(userValue));
+        }
+
+        $('.user_numbers .user_cards .number').eq(rndmPos3).addClass('ghost');
+        $('.user_numbers .user_cards .number').eq(rndmPos4).removeClass('ghost');
+
+    });
+
+
+    //| Click su pulsante PROSEGUI
+    $('.number .btn').eq(rndmPos4).click(function(){
+        
+        var userValue = $('.user_numbers .user_cards .number').eq(rndmPos4).children().val();
+        
+        if (numList.includes(parseInt(userValue))) {
+            userList.push(parseInt(userValue));
+        } else {
+            wrongList.push(parseInt(userValue));
+        }
+
+        $('.user_numbers .user_cards .number').eq(rndmPos4).addClass('ghost');
+        $('.user_numbers .user_cards .number').eq(rndmPos5).removeClass('ghost');
+
+    });
+
+
+    //| Click su pulsante PROSEGUI
+    $('.number .btn').eq(rndmPos5).click(function(){
+        
+        var userValue = $('.user_numbers .user_cards .number').eq(rndmPos5).children().val();
+        
+        if (numList.includes(parseInt(userValue))) {
+            userList.push(parseInt(userValue));
+        } else {
+            wrongList.push(parseInt(userValue));
+        }
+
+        $('.user_numbers .user_cards .number').eq(rndmPos5).addClass('ghost');
+
+        if (userList.length == 0) {
+            alert('Mi dispiace, non hai indovinato alcun numero. Riprova!');
+        } else if (userList.length == 5) {
+            alert('Complimenti! Hai indovinato tutti i numeri! Hai una memoria di ferro!');
+        } else {
+            alert(`Hai indovinato ${userList.length} numeri: ${userList}`);
+        }
+
+        console.log(`Lista numeri corretti: ${userList}`);
+        console.log(`Lista numeri sbagliati: ${wrongList}`);
+
+    });
+    
+
 
 });
 
 // - Funzioni -
 function generaRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-  }
+}
