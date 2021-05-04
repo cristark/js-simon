@@ -2,21 +2,20 @@
 Dopo 30 secondi l'utente deve inserire un prompt alla volta i numeri che ha visto precedentemente. 
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
 
-$(document).ready(function(){
+$(document).ready(() => {
 
-    var seconds = 2;
-    var minNum = 1;
-    var maxNum = 50;
-    var numList = [];
-    var userList = [];
-    var wrongList = [];
-    var positionArr = [];
-    var rndmPos1, rndmPos2, rndmPos3, rndmPos4, rndmPos5;
+    let seconds = 2;
+    const minNum = 1;
+    const maxNum = 50;
+    const numList = [];
+    const userList = [];
+    const wrongList = [];
+    const positionArr = [];
 
     // Genero numero random da 0 a 5 per conoscere posizione della carta giocatore che compare dopo aver avviato il gioco
     while (positionArr.length < 5) {
 
-        var rndmNum = generaRandom(0, 4);
+        let rndmNum = generaRandom(0, 4);
         
         if (positionArr.includes(rndmNum) == false) {
             positionArr.push(rndmNum);
@@ -24,12 +23,9 @@ $(document).ready(function(){
 
     };
 
+    // Utilizzo destructuring per assegnare i valori dell'array appena creato alle varie posizioni
+    const [rndmPos1, rndmPos2, rndmPos3, rndmPos4, rndmPos5] = positionArr;
     console.log(positionArr);
-    rndmPos1 = positionArr[0];
-    rndmPos2 = positionArr[1];
-    rndmPos3 = positionArr[2];
-    rndmPos4 = positionArr[3];
-    rndmPos5 = positionArr[4];
     
     // Genero dei numeri random assegnandoli ad un array
     var i = 0;
